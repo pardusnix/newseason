@@ -1,0 +1,71 @@
+board = []
+
+for x in range(0, 10):
+    board.append(["O"] * 10)
+
+
+def print_board(board):
+    for row in board:
+        print(" ".join(row))
+
+
+print_board(board)
+
+from random import randint
+
+
+
+class Ship:
+    coor = [0, 0]
+
+    def __init__(self, tipe, life, coor):
+        self.__tipe = tipe
+        self.life = life
+        self.coor = coor
+
+    def position(self, coor):
+        col = int(input("Guess_col: "))
+
+        if 0 < col >= 10:
+            print("введите правмльное значение от 0 до 9")
+            col = input("Please enter number: ")
+        else:
+            col = randint(0, 9)
+
+        row = int(input("Guess_col: "))
+
+        if 0 < row >= 10:
+            print("введите праымльное значение от 0 до 9")
+            row = input("Please enter number: ")
+        else:
+            row = randint(0, 9)
+
+        coor = [col, row]
+
+
+class Shot:
+
+    def __init__(self, bad, good, imp):
+        self.bad = bad
+        self.good = good
+        self.imp = imp
+
+
+    def testshot(self, coor, good, bad, imp):
+        bad = []
+        good = []
+        omp = []
+        if coor == omp:
+            print("уже били в эту точку выберете другую точку")
+            position(self, coor)
+
+        elif coor == bad:
+            print("Это промах стреляй точнее")
+            position(self, coor)
+
+        else:
+            print("Попадание))))")
+            coor = good
+
+class Pole:
+    def __init__(self, pole1, pole2, pole3, pole4):
